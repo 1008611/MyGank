@@ -1,11 +1,10 @@
-package com.wildwolf.mygank.ui;
+package com.wildwolf.mygank.ui.activity;
 
+import android.content.Intent;
 import android.os.Build;
-import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,11 +12,11 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.wildwolf.mygank.R;
-import com.wildwolf.mygank.ui.activity.BaseActivity;
+import com.wildwolf.mygank.test.TestActuvity;
 import com.wildwolf.mygank.ui.fragment.BaseFragment;
+
 import com.wildwolf.mygank.ui.fragment.TypeFragment;
 import com.wildwolf.mygank.utils.ResourceUtil;
 import com.wildwolf.mygank.utils.SnackbarUtil;
@@ -32,9 +31,6 @@ public class MainActivity extends BaseActivity
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
-
-    @Bind(R.id.fab)
-    FloatingActionButton fab;
 
     @Bind(R.id.nav_view)
     NavigationView navView;
@@ -154,28 +150,47 @@ public class MainActivity extends BaseActivity
         return super.onOptionsItemSelected(item);
     }
 
+    private Fragment fragment;
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camara) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_gank) {
+            doReplace(ResourceUtil.resToStr(mContext, R.string.gank));
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
+        } else if (id == R.id.nav_joke) {
+            doReplace(ResourceUtil.resToStr(mContext, R.string.joke));
+//            fragment = new NewsFragment();
+//            replaceFragment();
+        } else if (id == R.id.nav_girl) {
+            doReplace(ResourceUtil.resToStr(mContext, R.string.girl));
+        } else if (id == R.id.nav_blog) {
+            doReplace(ResourceUtil.resToStr(mContext, R.string.blog));
+        } else if (id == R.id.nav_csdn) {
+            doReplace(ResourceUtil.resToStr(mContext, R.string.csdn));
         } else if (id == R.id.nav_share) {
-
+            Intent intent = new Intent(this, TestActuvity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_send) {
 
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void replaceFragment() {
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        if (fragment.isAdded()) {
+            fragmentTransaction.show(fragment);
+        } else {
+            fragmentTransaction.replace(R.id.main_fragment_container, fragment);
+        }
+        fragmentTransaction.commitAllowingStateLoss();
     }
 
 

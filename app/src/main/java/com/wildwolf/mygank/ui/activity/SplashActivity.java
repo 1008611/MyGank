@@ -1,22 +1,18 @@
 package com.wildwolf.mygank.ui.activity;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
 
 import com.wildwolf.mygank.R;
 import com.wildwolf.mygank.data.SplashData;
 import com.wildwolf.mygank.parsenter.SplashPresenter;
-import com.wildwolf.mygank.ui.MainActivity;
 import com.wildwolf.mygank.ui.view.SplashView;
 import com.wildwolf.mygank.utils.DateUtil;
 import com.wildwolf.mygank.utils.ImageLoader;
-import com.wildwolf.mygank.utils.NetUtil;
 import com.wildwolf.mygank.utils.SPUtil;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * Created by ${wild00wolf} on 2016/11/18.

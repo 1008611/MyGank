@@ -2,14 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_camara" android:icon="@android:drawable/ic_menu_camera"
-            android:title="Import" />
-        <item android:id="@+id/nav_gallery" android:icon="@android:drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <item android:id="@+id/nav_slideshow" android:icon="@android:drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item android:id="@+id/nav_manage" android:icon="@android:drawable/ic_menu_manage"
-            android:title="Tools" />
+        <item android:id="@+id/nav_gank" android:icon="@android:drawable/ic_menu_camera"
+            android:title="Gank" />
+        <item android:id="@+id/nav_joke" android:icon="@android:drawable/ic_menu_gallery"
+            android:title="Images" />
+        <item android:id="@+id/nav_girl" android:icon="@android:drawable/ic_menu_slideshow"
+            android:title="Joke" />
+        <item android:id="@+id/nav_blog" android:icon="@android:drawable/ic_menu_manage"
+            android:title="Blog" />
+        <item android:id="@+id/nav_csdn" android:icon="@android:drawable/ic_menu_manage"
+            android:title="CSDN" />
     </group>
 
     <item android:title="Communicate">

@@ -3,7 +3,6 @@ package com.wildwolf.mygank.net;
 import com.wildwolf.mygank.data.HttpResult;
 
 import rx.Observable;
-import rx.Scheduler;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;

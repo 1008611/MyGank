@@ -4,7 +4,6 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.wildwolf.mygank.App;
-import com.wildwolf.mygank.data.SplashData;
 
 import java.io.IOException;
 

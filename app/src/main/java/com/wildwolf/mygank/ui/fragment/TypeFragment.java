@@ -3,9 +3,7 @@ package com.wildwolf.mygank.ui.fragment;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.wildwolf.mygank.R;
 import com.wildwolf.mygank.ui.adapter.TypePageAdapter;
@@ -15,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * Created by ${wild00wolf} on 2016/11/18.
@@ -45,6 +42,7 @@ public class TypeFragment extends BaseFragment {
         mTypeAdapter = new TypePageAdapter(getChildFragmentManager());
         mTypeAdapter.setData(mFragments, mTitles);
 
+//        mTablayout.setVisibility(View.GONE);
         mViewpager.setAdapter(mTypeAdapter);
         mViewpager.setOffscreenPageLimit(mTitles.size() - 1);
         mTablayout.setTabMode(TabLayout.MODE_SCROLLABLE);
@@ -75,16 +73,33 @@ public class TypeFragment extends BaseFragment {
         }
         mFragments = new ArrayList<>();
         mType = getArguments().getString(TYPE);
+
         if (ResourceUtil.resToStr(mActivity, R.string.gank).equals(mType)) {
             mTitles = ResourceUtil.stringArrayToList(mActivity, R.array.gank);
             for (String title : mTitles) {
-//                mFragments.add(GankItemFragment.newInstance(title));
+                mFragments.add(GankItemFragment.newInstance(title));
             }
+        } else if (ResourceUtil.resToStr(mActivity, R.string.joke).equals(mType)) {
+            mTitles = ResourceUtil.stringArrayToList(mActivity, R.array.joke);
+            mFragments.add(GirlsItemFragment.newInstance("aa"));
+
         } else if (ResourceUtil.resToStr(mActivity, R.string.girl).equals(mType)) {
             mTitles = ResourceUtil.stringArrayToList(mActivity, R.array.girl);
             List<String> subtypes = ResourceUtil.stringArrayToList(mActivity, R.array.girl_cid);
             for (String subtype : subtypes) {
-//                mFragments.add(GirlItemFragment.newInstance(subtype));
+                mFragments.add(GirlItemFragment.newInstance(subtype));
+            }
+        } else if (ResourceUtil.resToStr(mActivity, R.string.blog).equals(mType)) {
+            mTitles = ResourceUtil.stringArrayToList(mActivity, R.array.blog);
+            List<String> subtypes = ResourceUtil.stringArrayToList(mActivity, R.array.blog_cid);
+            for (String subtype : subtypes) {
+                mFragments.add(BlogItemFragment.newInstance(subtype));
+            }
+        }else if (ResourceUtil.resToStr(mActivity, R.string.csdn).equals(mType)) {
+            mTitles = ResourceUtil.stringArrayToList(mActivity, R.array.csdn_cid);
+            List<String> subtypes = ResourceUtil.stringArrayToList(mActivity, R.array.blog_cid);
+            for (String subtype : subtypes) {
+                mFragments.add(BlogItemFragment.newInstance(subtype));
             }
         }
     }
