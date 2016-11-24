@@ -26,7 +26,7 @@ public class GirlItemAdapter extends BaseAdapter<GirlItemData> {
     protected void convert(ViewHolder holder, GirlItemData data) {
 
         holder.setText(R.id.item_title,data.getTitle());
-        Log.e("TAG-title",data.getTitle());
+        Log.e("TAG-hi",data.getHeight()+"");
 
         ScaleImageView image = holder.getView(R.id.girl_item_iv);
         image.setInitSize(data.getWidth(),data.getHeight());

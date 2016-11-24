@@ -2,7 +2,6 @@ package com.wildwolf.mygank.ui.activity;
 
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 
 import com.wang.avi.AVLoadingIndicatorView;
 import com.wildwolf.mygank.R;

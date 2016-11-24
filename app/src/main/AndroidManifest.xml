@@ -33,6 +33,7 @@
         <activity android:name=".ui.activity.BlogDetailActivity"/>
         <activity android:name=".ui.activity.GirlsDetailActivity"/>
         <activity android:name=".ui.activity.Girls2DetailActivity"/>
+        <activity android:name=".ui.activity.CSDNListActivity"/>
     </application>
 
 </manifest>

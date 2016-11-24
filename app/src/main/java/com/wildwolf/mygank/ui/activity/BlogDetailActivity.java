@@ -84,7 +84,10 @@ public class BlogDetailActivity extends BaseActivity {
             }
         });
         mWebView.loadUrl(blogData.getUrl());
+
         Log.e("TAG-blog-url", blogData.getUrl());
+        Log.e("TAG-blog-url", blogData.getTitle());
+        Log.e("TAG-blog-url", blogData.getId());
     }
 
     private void initToolbar() {
@@ -99,7 +102,7 @@ public class BlogDetailActivity extends BaseActivity {
         }
 
         imgTitle.setText(blogData.getTitle());
-        imgSource.setText("来自:  王者");
+        imgSource.setText("来自:  "+blogData.getUrl());
 
         ImageLoader.load(App.getContext(), blogData.getUrl(), webImg);
 

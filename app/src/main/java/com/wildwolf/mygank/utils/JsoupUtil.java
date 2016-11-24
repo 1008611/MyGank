@@ -1,8 +1,10 @@
 package com.wildwolf.mygank.utils;
 
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.wildwolf.mygank.data.BlogData;
+import com.wildwolf.mygank.data.CSDNData;
 import com.wildwolf.mygank.data.GirlItemData;
 import com.wildwolf.mygank.data.TestData;
 import com.wildwolf.mygank.net.Api;
@@ -12,10 +14,9 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Created by ${wild00wolf} on 2016/11/21.
@@ -60,10 +61,7 @@ public class JsoupUtil {
         return list;
     }
 
-    public static List<TestData> parseTest(String a) {
-
-        String s = convertUnicode(a);
-        Log.e("TAG - s", s);
+    public static List<TestData> parseTest(String s) {
 
         Document document = Jsoup.parse(s);
 //        Elements elements = document.select("div.pic");
@@ -85,44 +83,115 @@ public class JsoupUtil {
         return list;
     }
 
-    private static String convertUnicode(String utfString) {
-        StringBuilder sb = new StringBuilder();
-        int i = -1;
-        int pos = 0;
-
-        while((i=utfString.indexOf("\\u", pos)) != -1){
-            sb.append(utfString.substring(pos, i));
-            if(i+5 < utfString.length()){
-                pos = i+6;
-                sb.append((char)Integer.parseInt(utfString.substring(i+2, i+6), 16));
-            }
-        }
-
-        return sb.toString();
-    }
-
-
 
     public static List<BlogData> parseTest2(String s) {
         Document document = Jsoup.parse(s);
 //        Elements elements = document.select("div.pic");
         Elements elements = document.getElementsByClass("article_item");
 
-        Log.e("TAG - elements", elements.toString());
-
         List<BlogData> list = new ArrayList<>();
         BlogData data;
         for (Element element : elements) {
             data = new BlogData();
             data.setTitle(element.select("h1").text());
-            data.setId(element.select("a").attr("href"));
+
+            String href = element.select("a").attr("href");
+            href = href.substring(href.indexOf("/") );
+            data.setId(href);
+
             data.setSubtype(element.select("div.article_manage").text());
             data.setUrl(Api.URL_GET_BLOG + element.select("a").attr("href"));
             list.add(data);
         }
 
         return list;
+
     }
+
+    public static List<BlogData> parseOtherBlog(String s) {
+        Document document = Jsoup.parse(s);
+        Elements elements = document.getElementsByClass("clearfix");
+
+        List<BlogData> list = new ArrayList<>();
+        BlogData data;
+        for (Element element : elements) {
+            data = new BlogData();
+            data.setTitle(element.select("dd").select("h3.list_c_t").select("a").text());
+//            data.setSubtype(element.select("dd").select("p.list_c_c").text().substring(0,15));
+            String year = element.select("dt").select("div.date").select("span").text();
+            String month = element.select("dt").select("div.date").select("em").text();
+            String day = element.select("dt").select("div.date").select("div.date_b").text();
+
+            data.setSubtype(year + "." + NumUtil.ChineseChangeToNumber(month) + "." + day);
+
+            String href = element.select("dd").select("h3.list_c_t").select("a").attr("href");
+            href = href.substring(href.indexOf("/") );
+            data.setId(href);
+            data.setUrl(Api.URL_GET_BLOG + element.select("dd").select("h3.list_c_t").select("a").attr("href"));
+
+            list.add(data);
+        }
+
+        return list;
+    }
+
+    public static List<CSDNData> parseCSDN(String s) {
+        Document document = Jsoup.parse(s);
+//        Elements elements = document.select("div.pic");
+        Elements elements = document.getElementsByClass("experts_list");
+
+        List<CSDNData> list = new ArrayList<>();
+        CSDNData data;
+        for (Element element : elements) {
+            data = new CSDNData();
+
+            data.setName(element.select("dd").select("a.expert_name").text());
+            String href = element.select("dt").select("a").attr("href");
+
+            href = href.substring(href.lastIndexOf("/") + 1);
+            data.setHref(href);
+
+            data.setImgUrl(element.select("dt").select("img").attr("src"));
+            data.setSubtype(element.select("div.address").text());
+
+            data.setArticleCount(element.select("div.fl").select("b").text());
+            data.setReadCount(element.select("div.fr").select("b").text());
+
+            list.add(data);
+        }
+
+        return list;
+    }
+
+    public static List<CSDNData> parseCsdnList(String s) {
+        Document document = Jsoup.parse(s);
+//        Elements elements = document.select("div.pic");
+        Elements elements = document.getElementsByClass("experts_list");
+
+        List<CSDNData> list = new ArrayList<>();
+        CSDNData data;
+        for (Element element : elements) {
+            data = new CSDNData();
+
+            data.setName(element.select("dd").select("a.expert_name").text());
+            String href = element.select("dt").select("a").attr("href");
+
+            href = href.substring(href.indexOf("/") + 1);
+            data.setHref(href);
+
+            data.setImgUrl(element.select("dt").select("img").attr("src"));
+            data.setSubtype(element.select("div.address").text());
+
+            data.setArticleCount(element.select("div.fl").select("b").text());
+            data.setReadCount(element.select("div.fr").select("b").text());
+
+            list.add(data);
+        }
+
+        return list;
+    }
+
+
 }
 
 

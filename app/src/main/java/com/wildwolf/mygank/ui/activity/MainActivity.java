@@ -16,7 +16,6 @@ import android.view.MenuItem;
 import com.wildwolf.mygank.R;
 import com.wildwolf.mygank.test.TestActuvity;
 import com.wildwolf.mygank.ui.fragment.BaseFragment;
-
 import com.wildwolf.mygank.ui.fragment.TypeFragment;
 import com.wildwolf.mygank.utils.ResourceUtil;
 import com.wildwolf.mygank.utils.SnackbarUtil;

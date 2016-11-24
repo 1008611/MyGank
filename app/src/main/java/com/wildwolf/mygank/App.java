@@ -3,6 +3,7 @@ package com.wildwolf.mygank;
 import android.app.Application;
 import android.content.Context;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.wildwolf.mygank.utils.SPUtil;
 
 /**
@@ -19,6 +20,8 @@ public class App extends Application {
 
         initRealm();
         SPUtil.init(mContext, "sp");
+
+        Fresco.initialize(mContext);
     }
 
     private void initRealm() {

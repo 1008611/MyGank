@@ -3,7 +3,6 @@ package com.wildwolf.mygank.ui.fragment;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.view.View;
 
 import com.wildwolf.mygank.R;
 import com.wildwolf.mygank.ui.adapter.TypePageAdapter;
@@ -96,10 +95,10 @@ public class TypeFragment extends BaseFragment {
                 mFragments.add(BlogItemFragment.newInstance(subtype));
             }
         }else if (ResourceUtil.resToStr(mActivity, R.string.csdn).equals(mType)) {
-            mTitles = ResourceUtil.stringArrayToList(mActivity, R.array.csdn_cid);
-            List<String> subtypes = ResourceUtil.stringArrayToList(mActivity, R.array.blog_cid);
+            mTitles = ResourceUtil.stringArrayToList(mActivity, R.array.csdn);
+            List<String> subtypes = ResourceUtil.stringArrayToList(mActivity, R.array.csdn_cid);
             for (String subtype : subtypes) {
-                mFragments.add(BlogItemFragment.newInstance(subtype));
+                mFragments.add(CSDNItemFragment.newInstance(subtype));
             }
         }
     }
