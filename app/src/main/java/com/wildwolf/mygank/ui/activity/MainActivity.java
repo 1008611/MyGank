@@ -170,6 +170,8 @@ public class MainActivity extends BaseActivity
             doReplace(ResourceUtil.resToStr(mContext, R.string.blog));
         } else if (id == R.id.nav_csdn) {
             doReplace(ResourceUtil.resToStr(mContext, R.string.csdn));
+        }  else if (id == R.id.nav_lib) {
+            doReplace(ResourceUtil.resToStr(mContext, R.string.lib));
         } else if (id == R.id.nav_share) {
             Intent intent = new Intent(this, TestActuvity.class);
             startActivity(intent);

@@ -132,9 +132,7 @@ public class CSDNListActivity extends BaseMvpActivity<CsdnDView, CsdnDPresenter>
 
     @Override
     public void onSuccess(List<BlogData> data) {
-        Log.e("TAG-1111", data.get(0).getSubtype());
-        Log.e("TAG-222", data.get(0).getTitle());
-        Log.e("TAG-333", data.get(0).getUrl());
+
 
         if (isLoadMore) {
             if (data.size() == 0) {

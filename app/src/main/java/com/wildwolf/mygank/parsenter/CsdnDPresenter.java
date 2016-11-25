@@ -2,13 +2,10 @@ package com.wildwolf.mygank.parsenter;
 
 import com.wildwolf.mygank.data.BlogData;
 import com.wildwolf.mygank.model.ICsdnDModel;
-import com.wildwolf.mygank.model.IGirlDetailModel;
 import com.wildwolf.mygank.model.impl.CsdnDImpl;
-import com.wildwolf.mygank.model.impl.GirlDetailImpl;
 import com.wildwolf.mygank.net.RxManager;
 import com.wildwolf.mygank.net.RxSubscriber;
 import com.wildwolf.mygank.ui.view.CsdnDView;
-import com.wildwolf.mygank.ui.view.GirlDetailView;
 import com.wildwolf.mygank.utils.JsoupUtil;
 
 import java.util.List;

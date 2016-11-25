@@ -52,18 +52,6 @@ public class Girls2DetailActivity extends BaseActivity {
     @Override
     protected void initData() {
         mGirlItemData = getIntent().getParcelableExtra("girls_data");
-//
-//        Log.e("TAG---1",mGirlItemData.toString()+"");
-//        Log.e("TAG---2",mGirlItemData.getTitle());
-//        Log.e("TAG---3",mGirlItemData.getUrl());
-//
-//        List<String> data=new ArrayList<>();
-
-
-//
-//        for (int i=0;i<mGirlItemData.size();i++){
-//            data.add(mGirlItemData.get(i).getUrl());
-//        }
 
         List<BaseFragment> fragments = new ArrayList<>();
 //        for (String url : data) {
@@ -77,22 +65,5 @@ public class Girls2DetailActivity extends BaseActivity {
         mViewPager.setAdapter(adapter);
 
     }
-
-//    @Override
-//    public void onSuccess(List<String> data) {
-//        List<BaseFragment> fragments = new ArrayList<>();
-//        for (String url : data) {
-//            fragments.add(Girl2DetailFragment.newInstance(url));
-//        }
-//
-//        GirlDetailAdapter adapter = new GirlDetailAdapter(getSupportFragmentManager());
-//        adapter.setData(fragments);
-//
-//        mViewPager.setOffscreenPageLimit(data.size());
-//        mViewPager.setAdapter(adapter);
-//
-//        mLoading.hide();
-//    }
-
 
 }

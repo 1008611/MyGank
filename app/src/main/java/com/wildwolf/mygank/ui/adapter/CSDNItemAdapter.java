@@ -2,8 +2,6 @@ package com.wildwolf.mygank.ui.adapter;
 
 import android.content.Context;
 import android.net.Uri;
-import android.util.Log;
-import android.widget.ImageView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wildwolf.mygank.R;

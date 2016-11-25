@@ -1,6 +1,5 @@
 package com.wildwolf.mygank.ui.view;
 
-import com.wildwolf.mygank.data.BlogData;
 import com.wildwolf.mygank.data.CSDNData;
 
 import java.util.List;

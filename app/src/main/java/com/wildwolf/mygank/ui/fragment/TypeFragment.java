@@ -100,6 +100,12 @@ public class TypeFragment extends BaseFragment {
             for (String subtype : subtypes) {
                 mFragments.add(CSDNItemFragment.newInstance(subtype));
             }
+        }else if (ResourceUtil.resToStr(mActivity, R.string.lib).equals(mType)) {
+            mTitles = ResourceUtil.stringArrayToList(mActivity, R.array.lib);
+            List<String> subtypes = ResourceUtil.stringArrayToList(mActivity, R.array.lib_cid);
+            for (String subtype : subtypes) {
+                mFragments.add(CSDNLibFragment.newInstance(subtype));
+            }
         }
     }
 

@@ -1,7 +1,6 @@
 package com.wildwolf.mygank.ui.activity;
 
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -85,9 +84,6 @@ public class BlogDetailActivity extends BaseActivity {
         });
         mWebView.loadUrl(blogData.getUrl());
 
-        Log.e("TAG-blog-url", blogData.getUrl());
-        Log.e("TAG-blog-url", blogData.getTitle());
-        Log.e("TAG-blog-url", blogData.getId());
     }
 
     private void initToolbar() {

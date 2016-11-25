@@ -1,16 +1,11 @@
 package com.wildwolf.mygank.parsenter;
 
-import android.util.Log;
-
-import com.wildwolf.mygank.data.BlogData;
 import com.wildwolf.mygank.model.ICSDNModel;
 import com.wildwolf.mygank.model.impl.CSDNModelImpl;
 import com.wildwolf.mygank.net.RxManager;
 import com.wildwolf.mygank.net.RxSubscriber;
 import com.wildwolf.mygank.ui.view.CSDNItemView;
 import com.wildwolf.mygank.utils.JsoupUtil;
-
-import java.util.List;
 
 /**
  * Created by ${wild00wolf} on 2016/11/24.

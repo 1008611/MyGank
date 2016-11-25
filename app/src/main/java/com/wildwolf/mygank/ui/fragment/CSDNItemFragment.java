@@ -8,18 +8,14 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.wildwolf.mygank.R;
-import com.wildwolf.mygank.data.BlogData;
 import com.wildwolf.mygank.data.CSDNData;
 import com.wildwolf.mygank.parsenter.CSDNItemPresenter;
 import com.wildwolf.mygank.ui.activity.CSDNListActivity;
-import com.wildwolf.mygank.ui.activity.GirlDetailActivity;
 import com.wildwolf.mygank.ui.adapter.CSDNItemAdapter;
 import com.wildwolf.mygank.ui.adapter.baseadapter.OnItemClickListeners;
 import com.wildwolf.mygank.ui.adapter.baseadapter.OnLoadMoreListener;
 import com.wildwolf.mygank.ui.adapter.baseadapter.ViewHolder;
 import com.wildwolf.mygank.ui.view.CSDNItemView;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;

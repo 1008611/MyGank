@@ -54,7 +54,7 @@
         <item>6451838</item>
     </string-array>
 
- <string-array name="csdn">
+    <string-array name="csdn">
         <item>全部专家</item>
         <item>移动开发</item>
         <item>Web前端</item>
@@ -78,6 +78,32 @@
         <item>12</item>
         <item>2</item>
         <item>3</item>
+    </string-array>
+
+    <string-array name="lib">
+        <item>移动开发</item>
+        <item>云计算/大数据</item>
+        <item>编程语言</item>
+        <item>数据库</item>
+        <item>软件工程</item>
+        <item>前端开发</item>
+        <item>智能硬件</item>
+        <item>理论基础</item>
+        <item>操作系统</item>
+        <item>综合应用</item>
+    </string-array>
+
+    <string-array name="lib_cid">
+        <item>Mobile-Develop</item>
+        <item>Cloud</item>
+        <item>Programming-Language</item>
+        <item>data-base</item>
+        <item>software-engineering</item>
+        <item>front-end-development</item>
+        <item>Smart-Device</item>
+        <item>basis</item>
+        <item>operating-system</item>
+        <item>Application-industry</item>
     </string-array>
 
 

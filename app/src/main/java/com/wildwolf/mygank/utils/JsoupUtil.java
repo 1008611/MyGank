@@ -1,10 +1,10 @@
 package com.wildwolf.mygank.utils;
 
-import android.text.TextUtils;
 import android.util.Log;
 
 import com.wildwolf.mygank.data.BlogData;
 import com.wildwolf.mygank.data.CSDNData;
+import com.wildwolf.mygank.data.CSDNLibData;
 import com.wildwolf.mygank.data.GirlItemData;
 import com.wildwolf.mygank.data.TestData;
 import com.wildwolf.mygank.net.Api;
@@ -16,7 +16,6 @@ import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * Created by ${wild00wolf} on 2016/11/21.
@@ -96,7 +95,7 @@ public class JsoupUtil {
             data.setTitle(element.select("h1").text());
 
             String href = element.select("a").attr("href");
-            href = href.substring(href.indexOf("/") );
+            href = href.substring(href.indexOf("/"));
             data.setId(href);
 
             data.setSubtype(element.select("div.article_manage").text());
@@ -125,7 +124,7 @@ public class JsoupUtil {
             data.setSubtype(year + "." + NumUtil.ChineseChangeToNumber(month) + "." + day);
 
             String href = element.select("dd").select("h3.list_c_t").select("a").attr("href");
-            href = href.substring(href.indexOf("/") );
+            href = href.substring(href.indexOf("/"));
             data.setId(href);
             data.setUrl(Api.URL_GET_BLOG + element.select("dd").select("h3.list_c_t").select("a").attr("href"));
 
@@ -163,33 +162,41 @@ public class JsoupUtil {
         return list;
     }
 
-    public static List<CSDNData> parseCsdnList(String s) {
+    public static List<CSDNLibData> parseCsdnLib(String s) {
         Document document = Jsoup.parse(s);
-//        Elements elements = document.select("div.pic");
-        Elements elements = document.getElementsByClass("experts_list");
 
-        List<CSDNData> list = new ArrayList<>();
-        CSDNData data;
+        Elements elements = document.getElementsByClass("whitebk");
+
+        Log.e("TAG-e", elements.toString());
+
+        List<CSDNLibData> list = new ArrayList<>();
+        CSDNLibData data;
         for (Element element : elements) {
-            data = new CSDNData();
-
-            data.setName(element.select("dd").select("a.expert_name").text());
-            String href = element.select("dt").select("a").attr("href");
-
-            href = href.substring(href.indexOf("/") + 1);
-            data.setHref(href);
-
-            data.setImgUrl(element.select("dt").select("img").attr("src"));
-            data.setSubtype(element.select("div.address").text());
-
-            data.setArticleCount(element.select("div.fl").select("b").text());
-            data.setReadCount(element.select("div.fr").select("b").text());
-
+            data = new CSDNLibData();
+            data.setHref(element.select("div.divtop").select("a.topphoto").attr("href"));
+            data.setImgUrl(element.select("div.divtop").select("div.bannerimg").select("img").attr("src"));  //
+            data.setIconUrl(element.select("div.divtop").select("a.topphoto").select("img").attr("src"));  //
+            data.setName(element.select("div.divbottoms").select("a.title").text());
             list.add(data);
         }
 
+
         return list;
     }
+//    public static List<CSDNLibData> parseCsdnLib2(String s) {
+//        Document document = Jsoup.parse(s);
+//
+//        Elements elements2 = document.getElementsByClass("divbottoms");
+//        CSDNLibData data ;
+//        List<CSDNLibData> list = new ArrayList<>();
+//        for (Element element : elements2) {
+//            data = new CSDNLibData();
+//            data.setName(element.select("a.title").text());
+//            list.add(data);
+//        }
+//
+//        return list;
+//    }
 
 
 }

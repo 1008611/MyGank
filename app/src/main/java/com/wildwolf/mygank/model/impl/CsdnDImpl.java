@@ -3,7 +3,6 @@ package com.wildwolf.mygank.model.impl;
 import com.wildwolf.mygank.model.ICsdnDModel;
 import com.wildwolf.mygank.net.NetManager;
 import com.wildwolf.mygank.service.CsdnDService;
-import com.wildwolf.mygank.service.GirlDetailService;
 
 import rx.Observable;
 
